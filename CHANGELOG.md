@@ -6,9 +6,16 @@ All notable changes to this project will be documented in this file.
 
 ### Updated
 
+- Criamos o sign
+
+### Updated
+
 - Dentro do prisma, criamos um model user ( schema ) passando os valores da tabela por dentro do schema.prisma
   isto permitirá com o comando [yarn prisma migrate dev] criar automaticamente uma pasta migration e dentro
   uma migration.sql passando os dados dessa tabela para um db.
+- Criamos uma pasta prisma e dentro dela um index com uma configuração que fará a configuração com o nosso db.
+- Verificação se o usuário existe no DB.
+- Criação do JWT_SECRET em MD5 para segurança da aplicação.
 
 ## [0.0.02] - 28/10/2021
 
