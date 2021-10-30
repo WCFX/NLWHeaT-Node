@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### Updated
 
+- Instalamos o CORS ao projeto.
+
+### Updated
+
 - Criamos um Message Service, no intuito de criar as mensagens passando o texto e o id do usuário.
 - Criamos um controller onde passamos que a mensagem será enviada no corpo da requisição.
 - Enviamos o resultado no corpo via json.
@@ -13,6 +17,8 @@ All notable changes to this project will be documented in this file.
   Caso o usuário esteja autenticado, ele irá executar a ação de criar uma nova mensagem.
 - Para poder visualizar o DB, utilizamos o comando [yarn prisma studio]. Ele criará um servidor com a porta
   localhost:5555, e nesta porta podemos visualizar os campos estabelecidos na requisição.
+- Instalamos o Socket.IO, para criar a comunicação com o backend de forma bidirecional e receber as respostas
+  do que enviamos em tempo real.
 
 ## [0.0.03] - 29/10/2021
 

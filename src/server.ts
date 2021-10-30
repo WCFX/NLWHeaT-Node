@@ -1,8 +1,21 @@
 import 'dotenv/config';
 import express, { Request, Response } from 'express';
+import http from 'https';
+import cors from 'cors';
+import { Server } from 'socket.io';
 import router from './routes';
 
 const server = express();
+server.use(cors());
+
+const serverHttp = http.createServer(server);
+
+const socketIO = new Server(serverHttp, {
+  cors: {
+    origin: '*',
+  },
+});
+
 server.use(express.json());
 
 server.use(router);
