@@ -17,7 +17,7 @@ class AuthenticateUserService {
   async execute(code: string) {
     const url = 'https://github.com/login/oauth/access_token';
 
-    let { data: accessTokenReponse } = await axios.post<IAcessTokenResponse>(
+    const { data: accessTokenReponse } = await axios.post<IAcessTokenResponse>(
       url,
       null,
       {
@@ -38,7 +38,7 @@ class AuthenticateUserService {
       },
     });
 
-    let { login, id, name, avatar_url } = res.data;
+    const { login, id, name, avatar_url } = res.data;
 
     let user = await prismaClient.user.findFirst({
       where: {
@@ -61,7 +61,7 @@ class AuthenticateUserService {
 
     if (!md5) throw new Error('JWT_SECRET not found');
 
-    let token = sign(
+    const token = sign(
       {
         user: {
           name: user.name,

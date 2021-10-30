@@ -2,11 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.0.03] - 29/10/2021
+## [0.0.03] - 30/10/2021
 
 ### Updated
 
-- Criamos o sign para gerar um token.
+- Criamos um Message Service, no intuito de criar as mensagens passando o texto e o id do usuário.
+- Criamos um controller onde passamos que a mensagem será enviada no corpo da requisição.
+- Enviamos o resultado no corpo via json.
+- Criamos um middleware que irá verificar se o usuário está autenticado para poder realizar a operação.
+  Caso o usuário esteja autenticado, ele irá executar a ação de criar uma nova mensagem.
+- Para poder visualizar o DB, utilizamos o comando [yarn prisma studio]. Ele criará um servidor com a porta
+  localhost:5555, e nesta porta podemos visualizar os campos estabelecidos na requisição.
+
+## [0.0.03] - 29/10/2021
 
 ### Updated
 
@@ -16,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - Criamos uma pasta prisma e dentro dela um index com uma configuração que fará a configuração com o nosso db.
 - Verificação se o usuário existe no DB.
 - Criação do JWT_SECRET em MD5 para segurança da aplicação.
+- Criamos o sign para gerar um token.
 
 ## [0.0.02] - 28/10/2021
 
