@@ -5,7 +5,7 @@
   "author": "Wagner Goulart <wcfx.dev@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev src/server.ts"
+    "dev": "ts-node-dev --exit-child src/server.ts"
   },
   "dependencies": {
     "@prisma/client": "3.3.0",

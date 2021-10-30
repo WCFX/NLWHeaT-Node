@@ -17,7 +17,7 @@ class AuthenticateUserService {
   async execute(code: string) {
     const url = 'https://github.com/login/oauth/access_token';
 
-    const { data: acessTokenReponse } = await axios.post<IAcessTokenResponse>(
+    let { data: accessTokenReponse } = await axios.post<IAcessTokenResponse>(
       url,
       null,
       {
@@ -34,11 +34,11 @@ class AuthenticateUserService {
 
     const res = await axios.get<IUserResponse>('https://api.github.com/users', {
       headers: {
-        Authorization: `Bearer ${acessTokenReponse.access_token}`,
+        authorization: `Bearer ${accessTokenReponse.access_token}`,
       },
     });
 
-    const { login, id, name, avatar_url } = res.data;
+    let { login, id, name, avatar_url } = res.data;
 
     let user = await prismaClient.user.findFirst({
       where: {
@@ -57,16 +57,20 @@ class AuthenticateUserService {
       });
     }
 
-    const token = sign(
+    const md5 = process.env.JWT_SECRET;
+
+    if (!md5) throw new Error('JWT_SECRET not found');
+
+    let token = sign(
       {
         user: {
           name: user.name,
           avatar_url: user.avatar_url,
           id: user.id,
+          login,
         },
       },
-      process.env.JWT_SECRET,
-
+      md5,
       {
         subject: user.id,
         expiresIn: '1d',

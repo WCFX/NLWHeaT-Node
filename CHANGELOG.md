@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Updated
 
-- Criamos o sign
+- Criamos o sign para gerar um token.
 
 ### Updated
 

@@ -12,7 +12,7 @@ model User {
   name       String
   github_id  Int
   avatar_url String
-  login_url  String
+  login      String
 
   @@map("users")
 }
